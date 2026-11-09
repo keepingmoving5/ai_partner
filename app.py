@@ -13,6 +13,8 @@ def save_data():
         'current_session': st.session_state.current_session,
         'messages': st.session_state.messages
     }
+    if not os.path.exists('./1_resourse'):
+        os.makedirs('./1_resourse')
     with open(f'./1_resourse/{st.session_state.current_session}.json', 'w', encoding='utf-8') as f:
         json.dump(session_data, f, ensure_ascii=False, indent=2)
 
